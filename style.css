@@ -12,66 +12,70 @@ html {
 
 body {
   background-image: linear-gradient(#615dad, #ffc8da);
-  text-align: center;
-  min-height: 100vh;
-  font: 16px/1.6 sans-serif;
+  font: 1rem/1.6 sans-serif;
+  min-height: 97vh;
+
 }
 
-img.intro-photo {
+main.intro {
+  display: flex;
+  width: 24rem;
+  margin: 1.25rem auto;
+}
+
+div.intro__game {
+  display: flex;
+  flex-direction: column;
+}
+
+img.intro__picture {
   width: 100%;
-  position: relative;
-  bottom: -8px;
-  border-radius: 8px 8px 0 0;
+  margin-top: 10px;
+  border-radius: 0.5rem 0.5rem 0 0;
 }
 
-.container {
+div.intro__description {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   color: #ffffff;
-  max-width: 380px;
-  margin: 20px auto;
-  padding: 10px;
-  display: inline-block;
-}
-
-div.intro {
-  padding-bottom: 0;
-}
-
-.intro-description {
   background-color: #283e50;
+  padding: 0.6rem;
 }
 
-h1 {
+h1.intro__title {
   font-family: 'Lobster', cursive;
   font-size: 3rem;
   font-weight: 500;
-  padding-top: 20px;
+  padding-top: 1.25rem;
 }
 
-p {
-  padding: 20px 10px;
-  line-height: 1.6rem;
+p.intro__text {
+  padding: 1.25rem 0.7rem;
+  text-align: center;
 }
 
-a.btn {
+a.intro__btn {
   display: block;
   text-decoration: none;
+  text-align: center;
   color: #ffffff;
-  padding: 13px 0;
+  padding: 0.8rem 0;
 }
 
-a.btn.rules {
+.intro__btn--rules {
   background-color: #1fcca4;
   border-bottom: 1px solid #000;
 }
 
-a.btn.start {
-  background-color: #0197f6;
-}
-
-a.btn.rules:hover {
+.intro__btn--rules:hover {
   background-color: #1cbb96;
 }
 
-a.btn.start:hover {
+.intro__btn--start {
+  background-color: #0197f6;
+}
+
+.intro__btn--start:hover {
   background-color: #0090e9;
 }

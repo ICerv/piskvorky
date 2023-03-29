@@ -99,7 +99,7 @@ main .game {
 h1.game__title {
   font-family: 'Lobster', cursive;
   font-weight: 500;
-  font-size: 7rem;
+  font-size: 4rem;
   text-align: center;
 }
 
@@ -113,7 +113,6 @@ h1.game__title {
 
 .game__player {
   display: flex;
-  margin-bottom: 1rem;
 }
 
 p.game__player--now {
@@ -121,16 +120,17 @@ p.game__player--now {
   text-transform: uppercase;
   font-size: 2rem;
   font-weight: 700;
+  padding-top: 15px;
 }
 
 span.game__player--circle {
   width: 1.8rem;
   height: 1.8rem;
   border-radius: 50%;
-  border: 3px solid #fff;
+  border: 3.5px solid #fff;
   position: relative;
   left: 0.5rem;
-  top: 0.6rem;
+  top: 1.5rem;
 
 }
 
@@ -166,20 +166,30 @@ a.game__restart-btn:hover {
   cursor: pointer;
 }
 
-.game__field {
-  display: flex;
-  flex-wrap: wrap;
+/* MŘIŽKA */
+
+.game__board {
+  border-collapse: collapse;
   margin: 0 auto;
+  width: 100%;
 }
 
-button.game__field--btn {
-  background-color: rgb(255, 255, 255, 0.5);
-  flex-basis: calc(100%/10);
+.game__board td {
+  width: 3rem;
+  height: 3rem;
   border: 1px solid #000;
 }
 
-button.game__field--btn:hover,
-button.game__field--btn:focus {
-  background-color: rgb(255, 255, 255, 0.7);
+.game__board td button {
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+  padding: 7px;
+  background-color: rgb(255, 255, 255, 0.4);
+}
+
+.game__board td button:hover,
+.game__board td button:focus {
+  background-color: rgb(255, 255, 255, 0.6);
   cursor: pointer;
 }

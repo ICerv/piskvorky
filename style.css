@@ -17,10 +17,14 @@ body {
 
 }
 
+/* INTRO */
+
 main.intro {
   display: flex;
   width: 24rem;
-  margin: 1.25rem auto;
+  margin: 0 auto;
+  height: 100vh;
+
 }
 
 div.intro__game {
@@ -78,4 +82,103 @@ a.intro__btn {
 
 .intro__btn--start:hover {
   background-color: #0090e9;
+}
+
+
+/* HRA */
+
+main .game {
+  display: flex;
+  flex-direction: column;
+  max-width: 80vmin;
+  height: 100vh;
+  margin: 0 auto;
+  color: #fff;
+}
+
+h1.game__title {
+  font-family: 'Lobster', cursive;
+  font-weight: 500;
+  font-size: 7rem;
+  padding-top: 1.25rem;
+  text-align: center;
+}
+
+.game__navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.game__player {
+  display: flex;
+  margin-bottom: 1rem;
+}
+
+p.game__player--now {
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+
+.game__buttons {
+  display: flex;
+  align-items: center;
+}
+
+a.game__home-btn {
+  background-color: #1fcca4;
+  border-radius: 0.5rem;
+  height: 3rem;
+  margin-right: 0.5rem;
+  padding: 0.7rem;
+  width: 3rem;
+}
+
+.game__home-btn:hover {
+  background-color: #1cbb96;
+  cursor: pointer;
+}
+
+a.game__restart-btn {
+  background-color: #0197f6;
+  border-radius: 0.5rem;
+  height: 3rem;
+  padding: 0.7rem;
+  width: 3rem;
+}
+
+
+a.game__restart-btn:hover {
+  background-color: #0090e9;
+  cursor: pointer;
+}
+
+
+
+
+.game__field {
+
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 auto;
+}
+
+
+
+
+
+button.game__field--btn {
+  background-color: rgb(255, 255, 255, 0.5);
+  width: calc(100%/10);
+  border: 1px solid #000;
+  aspect-ratio: 1/1;
+}
+
+button.game__field--btn:hover,
+button.game__field--btn:focus {
+  background-color: rgb(255, 255, 255, 0.7);
+  cursor: pointer;
 }

@@ -168,14 +168,13 @@ a.game__button--restart:hover {
 .game__board {
   display: flex;
   flex-wrap: wrap;
-  width: 100%;
 }
 
 .game__board--btn {
   background-color: rgb(255, 255, 255, 0.4);
   border: 1px solid #000;
   cursor: pointer;
-  flex: 1 1 10%;
+  flex-basis: 10%;
   opacity: 80%;
 }
 
@@ -189,32 +188,3 @@ a.game__button--restart:hover {
 .game__board--btn:focus {
   background-color: rgb(255, 255, 255, 0.7);
 }
-
-
-
-/*
-.game__board {
-  border-collapse: collapse;
-  margin: 0 auto;
-  width: 100%;
-}
-
-.game__board td {
-  border: 1px solid #000;
-  height: 3rem;
-}
-
-.game__board td button {
-  background-color: rgb(255, 255, 255, 0.4);
-  cursor: pointer;
-  height: 100%;
-  padding: 7px;
-  width: 100%;
-}
-
-.game__board td button:hover,
-.game__board td button:focus {
-  background-color: rgb(255, 255, 255, 0.6);
-  cursor: pointer;
-}
-*/

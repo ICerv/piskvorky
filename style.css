@@ -139,7 +139,7 @@ span.game__player--circle {
   align-items: center;
 }
 
-a.game__home-btn {
+a.game__button--home {
   background-color: #1fcca4;
   border-radius: 0.5rem;
   height: 3rem;
@@ -148,12 +148,12 @@ a.game__home-btn {
   width: 3rem;
 }
 
-.game__home-btn:hover {
+.game__button--home:hover {
   background-color: #1cbb96;
   cursor: pointer;
 }
 
-a.game__restart-btn {
+a.game__button--restart {
   background-color: #0197f6;
   border-radius: 0.5rem;
   height: 3rem;
@@ -161,7 +161,7 @@ a.game__restart-btn {
   width: 3rem;
 }
 
-a.game__restart-btn:hover {
+a.game__button--restart:hover {
   background-color: #0090e9;
   cursor: pointer;
 }

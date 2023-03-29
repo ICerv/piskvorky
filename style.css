@@ -13,7 +13,7 @@ html {
 body {
   background-image: linear-gradient(#615dad, #ffc8da);
   font: 1rem/1.6 sans-serif;
-  min-height: 97vh;
+  min-height: 100vh;
 
 }
 
@@ -90,15 +90,15 @@ main .game {
   color: #fff;
   display: flex;
   flex-direction: column;
-  height: 100vh;
   margin: 0 auto;
-  max-width: 80vmin;
+  max-width: 78vmin;
+  /* v zadani sice 80vmin, ale takto mi sedi na strance lip*/
 }
 
 h1.game__title {
   font-family: 'Lobster', cursive;
-  font-size: 4rem;
-  font-weight: 500;
+  font-size: 3rem;
+  font-weight: 400;
   text-align: center;
 }
 
@@ -106,7 +106,7 @@ h1.game__title {
   align-items: center;
   display: flex;
   justify-content: space-between;
-  padding-bottom: 1rem;
+  padding-bottom: 0.5rem;
 }
 
 .game__player {
@@ -116,32 +116,30 @@ h1.game__title {
 
 p.game__player--now {
   color: #fff;
-  font-size: 2rem;
+  font-size: 1.3rem;
   font-weight: 700;
-  padding-top: 15px;
   text-transform: uppercase;
 }
 
 span.game__player--circle {
-  border: 3.5px solid #fff;
+  border: 3px solid #fff;
   border-radius: 50%;
-  height: 1.8rem;
+  height: 1.2rem;
   left: 0.5rem;
   position: relative;
-  top: 1.6rem;
-  width: 1.8rem;
+  top: 0.4rem;
+  width: 1.2rem;
 }
 
 .game__buttons {
-  align-items: center;
   display: flex;
+  gap: 10px;
 }
 
 a.game__button--home {
   background-color: #1fcca4;
   border-radius: 0.4rem;
-  height: 3rem;
-  margin-right: 0.5rem;
+  height: 2.8rem;
   padding: 0.7rem;
   width: 2.8rem;
 }
@@ -168,6 +166,34 @@ a.game__button--restart:hover {
 /* GRID */
 
 .game__board {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.game__board--btn {
+  background-color: rgb(255, 255, 255, 0.4);
+  border: 1px solid #000;
+  cursor: pointer;
+  flex: 1 1 10%;
+  opacity: 80%;
+}
+
+.game__board--btn:after {
+  content: '';
+  display: block;
+  padding-top: 100%;
+}
+
+.game__board--btn:hover,
+.game__board--btn:focus {
+  background-color: rgb(255, 255, 255, 0.7);
+}
+
+
+
+/*
+.game__board {
   border-collapse: collapse;
   margin: 0 auto;
   width: 100%;
@@ -191,3 +217,4 @@ a.game__button--restart:hover {
   background-color: rgb(255, 255, 255, 0.6);
   cursor: pointer;
 }
+*/

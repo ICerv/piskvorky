@@ -87,11 +87,8 @@ a.intro__btn {
 
 main .game {
   color: #fff;
-  display: flex;
-  flex-direction: column;
   margin: 0 auto;
-  max-width: 78vmin;
-  /* v zadani sice 80vmin, ale takto mi sedi na strance lip*/
+  max-width: 80vmin;
 }
 
 h1.game__title {
@@ -115,19 +112,19 @@ h1.game__title {
 
 p.game__player--now {
   color: #fff;
-  font-size: 1.3rem;
+  font-size: 1.5rem;
   font-weight: 700;
   text-transform: uppercase;
 }
 
 span.game__player--circle {
-  border: 3px solid #fff;
+  align-self: center;
+  width: 1.5rem;
+  height: 1.5rem;
+  display: inline-block;
+  border: 4px solid #fff;
   border-radius: 50%;
-  height: 1.2rem;
-  left: 0.5rem;
-  position: relative;
-  top: 0.4rem;
-  width: 1.2rem;
+  margin-left: 0.5rem;
 }
 
 .game__buttons {
@@ -135,31 +132,28 @@ span.game__player--circle {
   gap: 10px;
 }
 
-a.game__button--home {
-  background-color: #1fcca4;
+a.game__button--home,
+a.game__button--restart {
   border-radius: 0.4rem;
-  height: 2.8rem;
+  height: 2.9rem;
   padding: 0.7rem;
-  width: 2.8rem;
+  /* width: 2.8rem; */
 }
 
-.game__button--home:hover {
-  background-color: #1cbb96;
-  cursor: pointer;
+a.game__button--home {
+  background-color: #1fcca4;
 }
 
 a.game__button--restart {
   background-color: #0197f6;
-  border-radius: 0.4rem;
-  height: 3rem;
-  margin-right: 0.5rem;
-  padding: 0.7rem;
-  width: 2.8rem;
+}
+
+a.game__button--home:hover {
+  background-color: #1cbb96;
 }
 
 a.game__button--restart:hover {
   background-color: #0090e9;
-  cursor: pointer;
 }
 
 /* TASK 2 - GRID */
@@ -173,8 +167,11 @@ a.game__button--restart:hover {
   background-color: rgb(255, 255, 255, 0.4);
   border: 1px solid #000;
   cursor: pointer;
-  flex-basis: 10%;
-  opacity: 80%;
+  flex: 0 0 10%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .game__field--btn:after {
@@ -185,7 +182,50 @@ a.game__button--restart:hover {
 
 .game__field--btn:hover,
 .game__field--btn:focus {
-  background-color: rgb(255, 255, 255, 0.7);
+  background-color: rgb(255, 255, 255, 0.6);
 }
 
 /* TASK 3 - CIRCLE & CROSS  */
+
+.game__field--circle {
+  position: relative;
+}
+
+.game__field--circle::before {
+  content: '';
+  width: 80%;
+  height: 80%;
+  border-radius: 50%;
+  border: 6px solid #000;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: block;
+  transform: translate(-50%, -50%);
+  background: none;
+
+}
+
+.game__field--cross {
+  position: relative;
+}
+
+.game__field--cross::before,
+.game__field--cross::after {
+  content: '';
+  width: 6px;
+  height: 100%;
+  position: absolute;
+  top: 2%;
+  left: 45%;
+  display: inline-block;
+  background-color: #000;
+}
+
+.game__field--cross::before {
+  transform: rotate(45deg);
+}
+
+.game__field--cross::after {
+  transform: rotate(-45deg);
+}

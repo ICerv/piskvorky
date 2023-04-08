@@ -127,6 +127,36 @@ span.game__player--circle {
   margin-left: 0.5rem;
 }
 
+span.game__player--cross {
+  align-self: center;
+  display: inline-block;
+  height: 1.5rem;
+  margin-left: 0.5rem;
+  width: 1.5rem;
+  position: relative;
+}
+
+span.game__player--cross:before,
+span.game__player--cross:after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  height: 4px;
+  width: 100%;
+}
+
+span.game__player--cross:before {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+span.game__player--cross:after {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+
 .game__buttons {
   display: flex;
   gap: 10px;
@@ -228,4 +258,14 @@ a.game__button--restart:hover {
 
 .game__field--cross::after {
   transform: rotate(-45deg);
+}
+
+@keyframes zoom-in {
+  0% {
+    transform: scale(0);
+  }
+
+  100% {
+    transform: scale(1);
+  }
 }

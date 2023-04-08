@@ -22,6 +22,12 @@ firstTenButtons.forEach((button) => {
   button.addEventListener('click', classToggle);
 });
 
+const confirmRestart = () => {
+  if (!confirm('Opravdu chces začit novou hru?')) event.preventDefault();
+}
+document.querySelector('.game__button--restart').addEventListener('click', confirmRestart)
+
+
 
 
 

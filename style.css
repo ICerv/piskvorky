@@ -226,14 +226,13 @@ a.game__button--restart:hover {
   width: 80%;
   height: 80%;
   border-radius: 50%;
-  border: 6px solid #000;
+  border: 4px solid #000;
   position: absolute;
   top: 50%;
   left: 50%;
   display: block;
   transform: translate(-50%, -50%);
   background: none;
-
 }
 
 .game__field--cross {
@@ -243,10 +242,9 @@ a.game__button--restart:hover {
 .game__field--cross::before,
 .game__field--cross::after {
   content: '';
-  width: 6px;
+  width: 4px;
   height: 100%;
   position: absolute;
-  top: 2%;
   left: 45%;
   display: inline-block;
   background-color: #000;
@@ -260,12 +258,16 @@ a.game__button--restart:hover {
   transform: rotate(-45deg);
 }
 
-@keyframes zoom-in {
+.zoom {
+  animation: zoom 0.20s;
+}
+
+@keyframes zoom {
   0% {
     transform: scale(0);
   }
 
-  100% {
+  80% {
     transform: scale(1);
   }
 }

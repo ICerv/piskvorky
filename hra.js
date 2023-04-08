@@ -8,7 +8,7 @@ const classToggle = (event) => {
   const classToRemove = currentPlayer === 'circle' ? 'game__player--circle' : 'game__player--cross';
   const classToAddPlayer = currentPlayer === 'circle' ? 'game__player--cross' : 'game__player--circle';
 
-  event.target.classList.toggle(classToAdd);
+  event.target.classList.add(classToAdd, 'zoom');
   document.querySelector('span').classList.remove(classToRemove);
   document.querySelector('span').classList.add(classToAddPlayer);
   event.target.disabled = true;

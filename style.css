@@ -164,12 +164,12 @@ a.game__button--restart:hover {
 
 /* TASK 2 - GRID */
 
-.game__board {
+.game__field {
   display: flex;
   flex-wrap: wrap;
 }
 
-.game__board--btn {
+.game__field--btn {
   background-color: rgb(255, 255, 255, 0.4);
   border: 1px solid #000;
   cursor: pointer;
@@ -177,20 +177,15 @@ a.game__button--restart:hover {
   opacity: 80%;
 }
 
-.game__board--btn:after {
+.game__field--btn:after {
   content: '';
   display: block;
   padding-top: 100%;
 }
 
-.game__board--btn:hover,
-.game__board--btn:focus {
+.game__field--btn:hover,
+.game__field--btn:focus {
   background-color: rgb(255, 255, 255, 0.7);
 }
 
-/* TASK 3 -  */
-
-.board__field--circle {}
-
-
-.board__field--cross {}
+/* TASK 3 - CIRCLE & CROSS  */

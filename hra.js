@@ -2,17 +2,17 @@
 let currentPlayer = 'circle';
 
 //Function returns a function that adds a specified class to the target of the given event
-const classAdd = (className) => (event) => event.target.classList.add(className);
+const classToggle = (className) => (event) => event.target.classList.toggle(className);
 
 // Functions to add the 'circle' and 'cross' classes, respectively
-const addCircleClass = classAdd('game__field--circle');
-const addCrossClass = classAdd('game__field--cross');
+const toggleCircleClass = classToggle('game__field--circle');
+const toggleCrossClass = classToggle('game__field--cross');
 
 // Variable that keeps track of the number of times the button has been clicked
 let switchCount = 0;
 
 // Function is called when a button is clicked, and switches between the circle and cross classes based on the value of switchCount
-const switchCircleCross = (event) => switchCount++ % 2 === 1 ? addCircleClass(event) : addCrossClass(event); // sice jsme se jeste neucily 'ternarni operator', ale pouzila jsem ho zde ze svych predchozich znalosti
+const switchCircleCross = (event) => switchCount++ % 2 === 1 ? toggleCircleClass(event) : toggleCrossClass(event); // sice jsme se jeste neucily 'ternarni operator', ale pouzila jsem ho zde ze svych predchozich znalosti
 
 // Selects the first 10 buttons and adds the event listener to switch the classes when clicked
 document.querySelectorAll('button:nth-child(-n+10)').forEach((button) => button.addEventListener('click', switchCircleCross));

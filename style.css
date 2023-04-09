@@ -231,7 +231,7 @@ a.game__button--restart:hover {
   left: 50%;
   display: block;
   transform: translate(-50%, -50%);
-  animation: zoom 0.25s;
+  animation: zoom 0.15s;
 }
 
 .game__field--cross {
@@ -247,7 +247,7 @@ a.game__button--restart:hover {
   left: 43%;
   display: inline-block;
   background-color: #000;
-  animation: zoom 0.25s;
+  animation: zoom 0.15s;
 }
 
 .game__field--cross::before {

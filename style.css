@@ -231,7 +231,7 @@ a.game__button--restart:hover {
   left: 50%;
   display: block;
   transform: translate(-50%, -50%);
-  background: none;
+  animation: zoom 0.25s;
 }
 
 .game__field--cross {
@@ -247,6 +247,7 @@ a.game__button--restart:hover {
   left: 45%;
   display: inline-block;
   background-color: #000;
+  animation: zoom 0.25s;
 }
 
 .game__field--cross::before {
@@ -257,16 +258,26 @@ a.game__button--restart:hover {
   transform: rotate(-45deg);
 }
 
-.zoom {
-  animation: zoom 0.20s;
+@keyframes zoom {
+  from {
+    transform: scale(0.1);
+    opacity: 0.5;
+  }
+
+  to {
+    transform: scale(1);
+    opacity: 0;
+  }
 }
 
 @keyframes zoom {
-  0% {
-    transform: scale(0);
+  from {
+    transform: scale(0.1);
+    opacity: 0.5;
   }
 
-  80% {
+  to {
     transform: scale(1);
+    opacity: 0;
   }
 }

@@ -1,12 +1,18 @@
-let currentPlayer = 'circle';
-let switchCount = 0;
 
 // sice jsme se jeste neucily 'ternarni operator', ale hodil se mi a pouzila jsem ho zde na zaklade svych predchozich znalosti
 
-const classToggle = (event) => {
+/*const toggleClass = (event) => {
   const classToAdd = currentPlayer === 'circle' ? 'game__field--circle' : 'game__field--cross';
   const classToRemove = currentPlayer === 'circle' ? 'game__player--circle' : 'game__player--cross';
   const classToAddPlayer = currentPlayer === 'circle' ? 'game__player--cross' : 'game__player--circle';
+*/
+let currentPlayer = 'circle';
+let switchCount = 0;
+
+const toggleClass = (event) => {
+  const classToAdd = 'game__field--' + (currentPlayer === 'circle' ? 'circle' : 'cross');
+  const classToRemove = 'game__player--' + (currentPlayer === 'circle' ? 'circle' : 'cross');
+  const classToAddPlayer = 'game__player--' + (currentPlayer === 'circle' ? 'cross' : 'circle');
 
   event.target.classList.add(classToAdd, 'zoom');
   document.querySelector('span').classList.remove(classToRemove);
@@ -17,15 +23,17 @@ const classToggle = (event) => {
   switchCount++;
 };
 
-const firstTenButtons = document.querySelectorAll('button:nth-child(-n+10');
-firstTenButtons.forEach((button) => {
-  button.addEventListener('click', classToggle);
-});
+const firstTenButtons = document.querySelectorAll('button:nth-child(-n+10)');
+for (let i = 0; i < firstTenButtons.length; i++) {
+  firstTenButtons[i].addEventListener('click', toggleClass);
+};
 
 const confirmRestart = (event) => {
-  if (!confirm('Opravdu chces začit novou hru?')) event.preventDefault();
-}
-document.querySelector('.game__button--restart').addEventListener('click', confirmRestart)
+  if (!confirm('Opravdu chces začit novou hru?')) {
+    event.preventDefault();
+  }
+};
+document.querySelector('.game__button--restart').addEventListener('click', confirmRestart);
 
 
 

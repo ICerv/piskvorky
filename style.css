@@ -244,7 +244,7 @@ a.game__button--restart:hover {
   width: 5px;
   height: 100%;
   position: absolute;
-  left: 45%;
+  left: 43%;
   display: inline-block;
   background-color: #000;
   animation: zoom 0.25s;

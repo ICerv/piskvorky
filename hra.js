@@ -17,10 +17,16 @@ const toggleClass = (event) => {
   switchCount++;
 };
 
+document.querySelectorAll('.game__field--btn').forEach((button) => {
+  button.addEventListener('click', toggleClass)
+});
+
+/*
 const firstTenButtons = document.querySelectorAll('button:nth-child(-n+10)');
 for (let i = 0; i < firstTenButtons.length; i++) {
   firstTenButtons[i].addEventListener('click', toggleClass);
 };
+*/
 
 const confirmRestart = (event) => {
   if (!confirm('Opravdu chces začit novou hru?')) {

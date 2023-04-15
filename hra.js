@@ -24,11 +24,15 @@ const toggleClass = (event) => {
   event.target.disabled = true;
   const winner = findWinner(gameBoard);
   if (winner === 'o' || winner === 'x') {
-    alert(`Vyhrál hráč se symbolem ${winner}.`);
-    location.reload();
+    setTimeout(() => {
+      alert(`Vyhrál hráč se symbolem ${winner}.`);
+      location.reload();
+    }, 250);
   } else if (winner === 'tie') {
-    alert('Remíza!');
-    location.reload();
+    setTimeout(() => {
+      alert('Remíza!');
+      location.reload();
+    }, 250);
   }
 };
 

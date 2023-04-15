@@ -2,9 +2,7 @@
 import { findWinner } from 'https://unpkg.com/piskvorky@0.1.4'
 
 let currentPlayer = 'circle'; // Initializing the currentPlayer with a circle
-
 const btnField = document.querySelectorAll('.game__field--btn'); // Selecting all the buttons from the game board
-
 
 const gameBoard = Array.from(btnField).fill('_'); // Creating an array with '_'
 

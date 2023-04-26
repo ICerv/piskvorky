@@ -4,7 +4,7 @@ import { findWinner } from 'https://unpkg.com/piskvorky@0.1.4'
 let currentPlayer = 'circle'; // Initializing the currentPlayer with 'o'
 
 
-
+//Function to handle player moves
 const makeMove = async (gameBoard, currentPlayer) => {
   // Creating an array of all buttons
   const btnField = Array.from(document.querySelectorAll('.game__field--btn'));
@@ -24,7 +24,7 @@ const makeMove = async (gameBoard, currentPlayer) => {
         player: 'x', // Looking for a move for 'x'
       }),
     });
-    console.log(response)
+    // console.log(response)
 
     // Parsing the response data
     const data = await response.json()
@@ -35,7 +35,7 @@ const makeMove = async (gameBoard, currentPlayer) => {
     const field = x + (y * 10) // Najde políčko na příslušné pozici.
     gameBoard[field] = 'x'
     btnField[field].click() // Simuluje kliknutí. Spustí událost `click` na políčku.
-    console.log(field)
+    // console.log(field)
 
   }
   // console.log(makeMove(gameBoard, currentPlayer))
@@ -46,12 +46,13 @@ const makeMove = async (gameBoard, currentPlayer) => {
 let gameBoard = []
 
 
-// A function to toggle the class and make moves on the game board
+// Function to toggle the class and make moves
 const toggleClass = (event) => {
+  // Initializing the game board with '_' if it is not yet defined
   if (gameBoard.length === 0) {
     gameBoard = Array(btnField.length).fill('_'); // Creating an array with '_'
   }
-  // console.log(gameBoard)
+  console.log(gameBoard)
   event.target.classList.add(`game__field--${currentPlayer}`); // Toggling the class of the clicked button
   const btnIndex = btnField.indexOf(event.target); // Getting the index of the clicked button 
   // console.log(btnIndex)
@@ -63,16 +64,11 @@ const toggleClass = (event) => {
 
 
   if (currentPlayer === 'circle') {
-    // document.querySelector('span').classList.remove('game__player--circle');
-    // document.querySelector('span').classList.add('game__player--cross');
-    // gameBoard[btnIndex] = 'o'; // Updating the game board with the current player's symbol
     currentPlayer = 'cross';
-    makeMove(gameBoard, currentPlayer)
+    setTimeout(() => {        // Delaying the move of the 'x' player
+      makeMove(gameBoard, currentPlayer)
+    }, 250);
   } else {
-    // event.target.classList.add('game__field--cross');
-    // document.querySelector('span').classList.remove('game__player--cross');
-    // document.querySelector('span').classList.add('game__player--circle');
-    // gameBoard[btnIndex] = 'x'; // Updating the game board with the current player's symbol
     currentPlayer = 'circle';
   }
 

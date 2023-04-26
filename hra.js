@@ -29,17 +29,18 @@ const makeMove = async (gameBoard, currentPlayer) => {
     // Parsing the response data
     const data = await response.json()
 
-    const { x, y } = data.position // x bude 0 a y bude 1, protože to je jediné volné políčko. x 0 odpovídá prvnímu sloupci a y 1 druhému řádku.
+    const { x, y } = data.position; // x bude 0 a y bude 1, protože to je jediné volné políčko. x 0 odpovídá prvnímu sloupci a y 1 druhému řádku.
     // console.log(data)
 
-    const field = x + (y * 10) // Najde políčko na příslušné pozici.
-    gameBoard[field] = 'x'
-    btnField[field].click() // Simuluje kliknutí. Spustí událost `click` na políčku.
+    const suggestedMoveIndex = x + (y * 10); // Najde políčko na příslušné pozici.
+    gameBoard[suggestedMoveIndex] = 'x'
+    const suggestedMoveButton = btnField[suggestedMoveIndex]
+    suggestedMoveButton.click() // Simuluje kliknutí. Spustí událost `click` na políčku.
     // console.log(field)
 
   }
   // console.log(makeMove(gameBoard, currentPlayer))
-
+  console.log(`Game board: ${gameBoard}`);
 }
 
 
@@ -56,7 +57,7 @@ const toggleClass = (event) => {
   event.target.classList.add(`game__field--${currentPlayer}`); // Toggling the class of the clicked button
   const btnIndex = btnField.indexOf(event.target); // Getting the index of the clicked button 
   // console.log(btnIndex)
-  gameBoard[btnIndex] = currentPlayer === 'circle' ? 'o' : 'x;' // Making a move on the game board
+  gameBoard[btnIndex] = currentPlayer === 'circle' ? 'o' : 'x'; // Making a move on the game board
   // console.log(gameBoard[btnIndex])
 
   event.target.disabled = true; // Disabling the clicked button after a move has been made

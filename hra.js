@@ -1,14 +1,46 @@
 // Importing the findWinner function from an external module
 import { findWinner } from 'https://unpkg.com/piskvorky@0.1.4'
 
-let currentPlayer = 'circle'; // Initializing the currentPlayer with a circle
-const btnField = document.querySelectorAll('.game__field--btn'); // Selecting all the buttons from the game board
+let currentPlayer = 'circle'; // Initializing the currentPlayer 'o'
 
-const gameBoard = Array.from(btnField).fill('_'); // Creating an array with '_'
+// Creating an array of all buttons
+const btnField = Array.from(document.querySelectorAll('.game__field--btn'));
+// console.log(btnField)
+let gameBoard = []
+if (gameBoard.length === 0) {
+  gameBoard = Array(btnField.length).fill('_'); // Creating an array with '_'
+}
+// console.log(gameBoard)
+
+if (currentPlayer === 'cross') {
+  const response = await fetch(
+    'https://piskvorky.czechitas-podklady.cz/api/suggest-next-move', {
+    method: 'POST',
+    headers: {
+      'Content-type': 'application/json',
+    },
+    body: JSON.stringify({
+      board: gameBoard,
+      player: 'x', // Looking for a move for 'x'
+    }),
+  },
+  )
+
+  const data = await response.json()
+  const { x, y } = data.position // x bude 0 a y bude 1, protože to je jediné volné políčko. x 0 odpovídá prvnímu sloupci a y 1 druhému řádku.
+  console.log(data)
+
+  const field = gameBoard[x + (y * 10)] // Najde políčko na příslušné pozici.
+  field.click() // Simuluje kliknutí. Spustí událost `click` na políčku.
+}
+// console.log(field)
+
+
 
 // A function to toggle the class and make moves on the game board
 const toggleClass = (event) => {
-  const btnIndex = Array.from(btnField).indexOf(event.target); //// Getting the index of the clicked button in the game board array
+  const btnIndex = btnField.indexOf(event.target); //// Getting the index of the clicked button 
+  console.log(btnIndex)
 
   if (currentPlayer === 'circle') {
     event.target.classList.add('game__field--circle');

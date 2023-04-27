@@ -6,10 +6,25 @@ let currentPlayer = 'circle'; // Initializing the currentPlayer with 'o'
 // Creating an array of all buttons
 const btnField = Array.from(document.querySelectorAll('.game__field--btn'));
 
+// Disable all buttons before making a request to the API
+/*
+const disabledAllButtons = () => {
+  btnField.forEach(button => button.disabled = true);
+}
+
+// Enable only empty buttons after the response is received
+const enableEmptyButtons = () => {
+  btnField.forEach(button => {
+    if (!button.classList.contains('game__field--circle') && !button.classList.contains('game__field--cross')) {
+      button.disabled = false;
+    }
+  });
+};
+*/
+
 //Function to handle player moves
 const makeMove = async (gameBoard, currentPlayer) => {
-  // Disable all buttons before making a request to the API
-  // btnField.forEach(button => button.disabled = true);
+  // disabledAllButtons();
 
   // Checking if it is the turn of the 'x' player
   if (currentPlayer === 'cross') {
@@ -31,15 +46,7 @@ const makeMove = async (gameBoard, currentPlayer) => {
     const field = btnField[x + y * 10]; // Finds the element at the corresponding position
     field.click() // Simulates a click. Triggers the click event on the elemen
   };
-
-  // Enable only empty buttons after the response is received
-  /*
-  btnField.forEach(button => {
-    if (!button.classList.contains('game__field--circle') && !button.classList.contains('game__field--cross')) {
-      button.disabled = false;
-    }
-  })
-  */
+  // enableEmptyButtons();
 };
 
 // Creating an array with '_' to represent the game board

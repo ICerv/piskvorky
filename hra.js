@@ -7,7 +7,6 @@ let currentPlayer = 'circle'; // Initializing the currentPlayer with 'o'
 const btnField = Array.from(document.querySelectorAll('.game__field--btn'));
 
 // Disable all buttons before making a request to the API
-
 const disableAllButtons = () => {
   btnField.forEach(button => button.disabled = true);
 }

@@ -7,8 +7,8 @@ let currentPlayer = 'circle'; // Initializing the currentPlayer with 'o'
 const btnField = Array.from(document.querySelectorAll('.game__field--btn'));
 
 // Disable all buttons before making a request to the API
-/*
-const disabledAllButtons = () => {
+
+const disableAllButtons = () => {
   btnField.forEach(button => button.disabled = true);
 }
 
@@ -20,11 +20,11 @@ const enableEmptyButtons = () => {
     }
   });
 };
-*/
+
 
 //Function to handle player moves
 const makeMove = async (gameBoard, currentPlayer) => {
-  // disabledAllButtons();
+  disableAllButtons();
 
   // Checking if it is the turn of the 'x' player
   if (currentPlayer === 'cross') {
@@ -39,6 +39,7 @@ const makeMove = async (gameBoard, currentPlayer) => {
         player: 'x', // Looking for a move for 'x'
       }),
     });
+    enableEmptyButtons();
 
     const data = await response.json()     // Parsing the response data
     const { x, y } = data.position;
@@ -46,7 +47,6 @@ const makeMove = async (gameBoard, currentPlayer) => {
     const field = btnField[x + y * 10]; // Finds the element at the corresponding position
     field.click() // Simulates a click. Triggers the click event on the elemen
   };
-  // enableEmptyButtons();
 };
 
 // Creating an array with '_' to represent the game board
@@ -61,7 +61,7 @@ const toggleClass = (event) => {
   const btnIndex = btnField.indexOf(event.target); // Getting the index of the clicked button 
 
   event.target.classList.add(`game__field--${currentPlayer}`); // Toggling the class of the clicked button
-  // console.log(btnIndex)
+
   gameBoard[btnIndex] = currentPlayer === 'circle' ? 'o' : 'x'; // Making a move on the game board
 
   event.target.disabled = true; // Disabling the clicked button after a move has been made

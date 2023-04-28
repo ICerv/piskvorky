@@ -48,7 +48,6 @@ const makeMove = async (gameBoard, currentPlayer) => {
   };
 };
 
-// Creating an array with '_' to represent the game board
 let gameBoard = []
 
 // Function to toggle the class and make moves
@@ -62,6 +61,9 @@ const toggleClass = (event) => {
   event.target.classList.add(`game__field--${currentPlayer}`); // Toggling the class of the clicked button
 
   gameBoard[btnIndex] = currentPlayer === 'circle' ? 'o' : 'x'; // Making a move on the game board
+  //Toggle 'span' element's class to show the current player's symbol on turn
+  document.querySelector('span').classList.remove('game__player--circle', 'game__player--cross');
+  document.querySelector('span').classList.add(currentPlayer === 'circle' ? 'game__player--cross' : 'game__player--circle');
 
   event.target.disabled = true; // Disabling the clicked button after a move has been made
 

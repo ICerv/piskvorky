@@ -1,5 +1,5 @@
 // Importing the findWinner function from an external module
-import { findWinner } from 'https://unpkg.com/piskvorky@0.1.4'
+import { findWinner } from 'https://unpkg.com/piskvorky@0.1.4';
 
 let currentPlayer = 'circle'; // Initializing the currentPlayer with 'o'
 
@@ -19,7 +19,6 @@ const enableEmptyButtons = () => {
     }
   });
 };
-
 
 //Function to handle player moves
 const makeMove = async (gameBoard, currentPlayer) => {
@@ -48,7 +47,7 @@ const makeMove = async (gameBoard, currentPlayer) => {
   };
 };
 
-let gameBoard = []
+let gameBoard = [];
 
 // Function to toggle the class and make moves
 const toggleClass = (event) => {

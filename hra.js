@@ -1,12 +1,12 @@
-// Importing the findWinner function from an external module
+// Import the findWinner function from an external module
 import { findWinner } from 'https://unpkg.com/piskvorky@0.1.4';
 
-let currentPlayer = 'circle'; // Initializing the currentPlayer with 'o'
+let currentPlayer = 'circle'; // Initialize the currentPlayer with 'o'
 
-// Creating an array of all buttons
+// Create an array of all buttons
 const btnField = Array.from(document.querySelectorAll('.game__field--btn'));
 
-// Disable all buttons before making a request to the API
+// Disable all buttons before making a request to API
 const disableAllButtons = () => {
   btnField.forEach(button => button.disabled = true);
 }
@@ -24,9 +24,9 @@ const enableEmptyButtons = () => {
 const makeMove = async (gameBoard, currentPlayer) => {
   disableAllButtons();
 
-  // Checking if it is the turn of the 'x' player
+  // Check if it is the turn of the 'x' player
   if (currentPlayer === 'cross') {
-    const response = await fetch( // Making a request to the API to get the suggested move
+    const response = await fetch( // Make a request to API to get the suggested move
       'https://piskvorky.czechitas-podklady.cz/api/suggest-next-move', {
       method: 'POST',
       headers: {
@@ -34,16 +34,16 @@ const makeMove = async (gameBoard, currentPlayer) => {
       },
       body: JSON.stringify({
         board: gameBoard,
-        player: 'x', // Looking for a move for 'x'
+        player: 'x', // Look for a move for 'x'
       }),
     });
     enableEmptyButtons();
 
-    const data = await response.json()     // Parsing the response data
+    const data = await response.json()     // Parse the response data
     const { x, y } = data.position;
 
-    const field = btnField[x + y * 10]; // Finds the element at the corresponding position
-    field.click() // Simulates a click. Triggers the click event on the elemen
+    const field = btnField[x + y * 10]; // Find the element at the corresponding position
+    field.click() // Simulate  a click. Trigger the click event on the element
   };
 };
 
@@ -51,20 +51,21 @@ let gameBoard = [];
 
 // Function to toggle the class and make moves
 const toggleClass = (event) => {
-  // Initializing the game board with '_' if it is not yet defined
+  // Initialize the game board with '_' if it is not yet defined
   if (gameBoard.length === 0) {
     gameBoard = Array(btnField.length).fill('_');
   }
-  const btnIndex = btnField.indexOf(event.target); // Getting the index of the clicked button 
+  const btnIndex = btnField.indexOf(event.target); // Get the index of the clicked button 
 
-  event.target.classList.add(`game__field--${currentPlayer}`); // Toggling the class of the clicked button
+  event.target.classList.add(`game__field--${currentPlayer}`); // Toggle the class of the clicked button
 
-  event.target.disabled = true; // Disabling the clicked button after a move has been made
+  event.target.disabled = true; // Disable the clicked button after a move has been made
 
-  // Checking if it is the turn of the cross player
+  // Check whether the current player is "o" or not
   if (currentPlayer === 'circle') {
-    currentPlayer = 'cross';
-    gameBoard[btnIndex] = 'o';
+    currentPlayer = 'cross'; //If the current player is 'o', set the currentPlayer to 'x'
+    gameBoard[btnIndex] = 'o';  // Update gameBoard array at the specified index to "o"
+    // Update the player indicator to show "x"
     document.querySelector('span').classList.remove('game__player--circle');
     document.querySelector('span').classList.add('game__player--cross');
     setTimeout(() => {        // Delaying the move of the 'x' player
@@ -73,14 +74,15 @@ const toggleClass = (event) => {
   } else {
     currentPlayer = 'circle';
     gameBoard[btnIndex] = 'x';
+    // Update the player indicator to show "o"
     document.querySelector('span').classList.remove('game__player--cross');
     document.querySelector('span').classList.add('game__player--circle');
   };
 
-  // Checking if there is a winner or a tie after each move
+  // Check if there is a winner or a tie after each move
   const winner = findWinner(gameBoard);
   if (winner === 'o' || winner === 'x') {
-    setTimeout(() => { // Delaying the display of the alert message
+    setTimeout(() => { // Delay the display of the alert message
       alert(`Vyhrál hráč se symbolem ${winner}.`);
       location.reload();
     }, 250);
@@ -92,17 +94,17 @@ const toggleClass = (event) => {
   }
 };
 
-// Adding a click event listener to each button 
+// Add a click event listener to each button 
 btnField.forEach((button) => {
   button.addEventListener('click', toggleClass)
 });
 
-// Confirming if the user wants to restart the game
+// Confirm if the user wants to restart the game
 const confirmRestart = (event) => {
   if (!confirm('Opravdu chces začit novou hru?')) {
     event.preventDefault();
   }
 };
-// Adding a click event listener to the restart button
+// Add a click event listener to the restart button
 document.querySelector('.game__button--restart').addEventListener('click', confirmRestart);
 

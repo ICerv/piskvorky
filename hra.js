@@ -60,22 +60,23 @@ const toggleClass = (event) => {
 
   event.target.classList.add(`game__field--${currentPlayer}`); // Toggling the class of the clicked button
 
-  gameBoard[btnIndex] = currentPlayer === 'circle' ? 'o' : 'x'; // Making a move on the game board
-  //Toggle 'span' element's class to show the current player's symbol on turn
-  document.querySelector('span').classList.remove('game__player--circle', 'game__player--cross');
-  document.querySelector('span').classList.add(currentPlayer === 'circle' ? 'game__player--cross' : 'game__player--circle');
-
   event.target.disabled = true; // Disabling the clicked button after a move has been made
 
   // Checking if it is the turn of the cross player
   if (currentPlayer === 'circle') {
     currentPlayer = 'cross';
+    gameBoard[btnIndex] = 'o';
+    document.querySelector('span').classList.remove('game__player--circle');
+    document.querySelector('span').classList.add('game__player--cross');
     setTimeout(() => {        // Delaying the move of the 'x' player
       makeMove(gameBoard, currentPlayer)
     }, 500);
   } else {
     currentPlayer = 'circle';
-  }
+    gameBoard[btnIndex] = 'x';
+    document.querySelector('span').classList.remove('game__player--cross');
+    document.querySelector('span').classList.add('game__player--circle');
+  };
 
   // Checking if there is a winner or a tie after each move
   const winner = findWinner(gameBoard);

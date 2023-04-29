@@ -117,7 +117,7 @@ p.game__player--now {
   text-transform: uppercase;
 }
 
-span.game__player--circle {
+span.game__player--o {
   align-self: center;
   width: 1.5rem;
   height: 1.5rem;
@@ -127,7 +127,7 @@ span.game__player--circle {
   margin-left: 0.5rem;
 }
 
-span.game__player--cross {
+span.game__player--x {
   align-self: center;
   display: inline-block;
   height: 1.5rem;
@@ -136,8 +136,8 @@ span.game__player--cross {
   position: relative;
 }
 
-span.game__player--cross:before,
-span.game__player--cross:after {
+span.game__player--x:before,
+span.game__player--x:after {
   content: '';
   position: absolute;
   top: 50%;
@@ -148,11 +148,11 @@ span.game__player--cross:after {
   width: 100%;
 }
 
-span.game__player--cross:before {
+span.game__player--x:before {
   transform: translate(-50%, -50%) rotate(45deg);
 }
 
-span.game__player--cross:after {
+span.game__player--x:after {
   transform: translate(-50%, -50%) rotate(-45deg);
 }
 
@@ -213,13 +213,13 @@ a.game__button--restart:hover {
   background-color: rgb(255, 255, 255, 0.6);
 }
 
-/* CIRCLE & CROSS  */
+/* o & x  */
 
-.game__field--circle {
+.game__field--o {
   position: relative;
 }
 
-.game__field--circle::before {
+.game__field--o::before {
   content: '';
   width: 80%;
   height: 80%;
@@ -233,12 +233,12 @@ a.game__button--restart:hover {
   animation: zoom-o 0.15s;
 }
 
-.game__field--cross {
+.game__field--x {
   position: relative;
 }
 
-.game__field--cross::before,
-.game__field--cross::after {
+.game__field--x::before,
+.game__field--x::after {
   content: '';
   width: 5px;
   height: 100%;
@@ -249,11 +249,11 @@ a.game__button--restart:hover {
   animation: zoom-x 0.15s;
 }
 
-.game__field--cross::before {
+.game__field--x::before {
   transform: rotate(45deg);
 }
 
-.game__field--cross::after {
+.game__field--x::after {
   transform: rotate(-45deg);
 }
 

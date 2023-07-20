@@ -1,8 +1,6 @@
-# Tic Tac Toe with AI
+# ⭕❌ Tic Tac Toe with AI ❌⭕
 
-This project is an implementation of the Tic Tac Toe game using basic web technologies such as HTML, CSS, and JavaScript.
-
-![Tic Tac Toe]() ![Tic Tac Toe]()
+This project is an implementation of the ⭕❌Tic Tac Toe❌⭕ game using basic web technologies such as HTML, CSS, and JavaScript.
 
 ## Technologies Used
 
